@@ -1,0 +1,863 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/jagallegom.css" id="theme">
+ 
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<img src="resources/unal.svg" style="width: 200px;" />
+				<h2>Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)</h2>
+				<h4 style="font-weight: 100;">Joseph A. Gallego-Mejia / Oscar Bustos / Fabio González</h4>
+				<h5>jagallegom@unal.edu.co / oabustosb@unal.edu.co / fagonzalezo@unal.edu.co</h5>
+				<h6 style="font-weight: 100; font-size: 16px;">Engineering – Systems and Industrial
+					Department – Bogota - Colombia</h6>
+			</section>
+
+			<section class="title-slide has-dark-background present" style="top: 312px; display: block;">
+				<h1>Background</h1>
+			</section>
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_1.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_2.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_3.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_4.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_5.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3_6.svg"> </img>
+				</div>
+			</section>
+
+			<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
+				aria-hidden="true">
+				<h1>Density Estimation</h1>
+				<div class="text-image">
+					<img src="resources/kde.png" alt="Websocket" width="30%" style="float: right">
+					<div style="width: 70%;">
+						<ul>
+							<li><b>Probability density function (pdf):</b> defines the likelihood of failing within
+								particular range of values from a random variable.</li>
+							<li><b>Density estimation:</b> estimate the pdf from data.</li>
+							<li><b>Two approaches:</b> parametric and non-parametric.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+
+
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="">Kernel Density Estimation</h1>
+				<div class="text-image">
+					<img src="resources/kde_kernel.svg" alt="Websocket" width="40%" style="float: right">
+					<div style="width: 60%;">
+						<ul>
+							<li>Non-parametric density estimation method.</li>
+							<li>Does not make any particular assumption about the underlying probability density
+								function.</li>
+							<li>Unbiased estimator of the pdf.</li>
+						</ul>
+					</div>
+				</div>
+				<img src="resources/kde_equation.svg" width="100%"> </img>
+
+			</section>
+
+
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="">Kernel Density Estimation Problems</h1>
+
+				<div class="container" style="padding-top:70px">
+					<div class="left-col; " style="padding-right:50px;">
+						<ul>
+							<li style="font-size:30px">Inneficient. Memory based algorithm.</li>
+							<li style="font-size:30px">High dimensional data.</li>
+							<li style="font-size:30px">It is not differentiable.</li>
+						</ul>
+					</div>
+					<div class="right-col" style="padding-top:30px">
+						<table style="color:cadetblue">
+							<thead>
+								<tr>
+									<th>Phase</th>
+									<th>Memory</th>
+									<th>Time</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Training Phase</td>
+									<td>\(O(N)\)</td>
+									<td>\(O(1)\) </td>
+								</tr>
+								<tr>
+									<td>Testing Phase</td>
+									<td>\(O(N)\) + \(O(M)\)</td>
+									<td>\(O(NM)\)</td>
+								</tr>
+							</tbody>
+						</table><br><br>
+						<span style="color:cadetblue">N: number of training points<br>
+							M: number of testing points</span>
+					</div>
+				</div>
+			</section>
+
+
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+					<h2>Tools</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li>Let \(\alpha\) be the ratio of the anomaly points</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+					<h2>Tools</h2>
+					<div class="text-image">
+						<img src="resources/classification.svg" alt="Websocket" width="35%" style="float: right">
+						<div width="50%">
+							<div>
+								<ul>
+									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
+									<li>When \(\alpha\) is high \(\rightarrow\) supervised learning approach.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+				</section>
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+					<h2>Tools</h2>
+					<div class="text-image">
+						<img src="resources/novelty_detection_2d.png" alt="Websocket" width="35%" style="float: right">
+						<div width="50%">
+							<div>
+								<ul>
+									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
+									<li>When \(\alpha\) is high \(\rightarrow\) supervised learning approach.</li>
+									<li> However, when \(\alpha\) is low \(\rightarrow\) outlier detection
+										algorithms.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="">Anomaly Detection</h1>
+				<img src="resources/anomaly_detection_types.png" alt="Websocket" width="45%" style="float: right">
+				<div style="width: 55%;">
+					<div>
+						<ul>
+							<li>Anomaly is an observation that deviates considerably from some concept of normality.
+							</li>
+							<li>Also known as outlier or novelty detection (other terms: unusual, irregular,
+								atypical,).</li>
+							<li>It can be solved using supervised, unsupervised or semi-supervised approaches</li>
+						</ul>
+					</div>
+				</div>
+				<aside class="notes">
+					F. Y. Edgeworth, “On discordant observations,” The London, Edinburgh, and Dublin Philosophical
+					Magazine and Journal of Science, vol. 23, no. 5, pp. 364–375, 1887.
+
+					Kuhn [14] claims that persistent anomalies drive scientific
+					revolutions (see section VI ‘Anomaly and the Emergence of
+					Scientific Discoveries’ in [14]).
+
+					T. S. Kuhn, The Structure of Scientific Revolutions. Chicago: University of Chicago Press, 1970.
+
+					For applications to be successful on such complex and high-dimensional data, a meaningful
+					representation of the data is crucial [80].
+				</aside>
+			</section>
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="">Anomaly Detection Applications</h1>
+				<img src="resources/background_anomaly_detection_applications.svg"> </img>
+			</section>
+
+
+
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="">Anomaly Detection Methods</h1>
+				<img src="resources/anomaly_detection_background.png" width="80%"> </img><br>
+				Ruff, L., Kauffmann, J. R., Vandermeulen, R. A., Montavon, G., Samek, W., Kloft, M., ... & Müller, K. R.
+				(2021). A unifying review of deep and shallow anomaly detection. Proceedings of the IEEE.
+
+				<aside class="notes">
+					Principal Component Analysis (PCA) [1]–[5], the One-Class Support Vector Machine (OCSVM) [6],
+					Support Vector Data Description (SVDD) [7],
+					nearest neighbor algorithms [8]–[10], and Kernel Density Estimation (KDE) [11], [12].
+				</aside>
+
+
+			</section>
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="11">Problem Statement</h1>
+				<h4>Challenges of density estimation methods</h4>
+				<ul>
+					<li>Efficiency and scalability.</li>
+					<li>Simplicity.</li>
+					<li>Ability to produce a good estimation of the density.</li>
+					<li>Integrability with deep models</li>
+					<li>Good for anomaly detection?</li>
+				</ul>
+			</section>
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="11">Problem Statement</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>Aspects</th>
+							<th>Kernel Density Estimation</th>
+							<th>Neural Density Estimation</th>
+							<th>Generative Adversarial Networks</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Non Memory Based</td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td>Simple Model</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Training Difficulty</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Density Estimation</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Differentiable</td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>Good for anomaly detection</td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</section>
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="11">Problem Statement</h1>
+				<table>
+					<thead>
+						<tr>
+							<th>Aspects</th>
+							<th>Kernel Density Estimation</th>
+							<th>Neural Density Estimation</th>
+							<th>Generative Adversarial Networks</th>
+							<th style="background-color: cornsilk;">Ideal Method</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Non Memory Based</td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green;">&#10003;</span></td>
+						</tr>
+						<tr>
+							<td>Simple Model</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green">&#10003;</span></td>
+						</tr>
+						<tr>
+							<td>Training Difficulty</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green">&#10003;</span></td>
+						</tr>
+						<tr>
+							<td>Density Estimation</td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green">&#10003;</span></td>
+						</tr>
+						<tr>
+							<td>Differentiable</td>
+							<td><span style="color:red">&#10006;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td><span style="color:green">&#10003;</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green">&#10003;</span></td>
+						</tr>
+
+						<tr>
+							<td>Good for anomaly detection</td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td><span style="color:green">&#10003;?</span></td>
+							<td style="background-color: cornsilk;"><span style="color:green">&#10003;?</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h1 data-auto-animate-target="11">Hypotheses</h1>
+				<ul>
+					
+					<li style="font-size: 32px;">
+						Using this model for anomaly detection can obtain results that are competitive with
+						state-of-the-art
+						anomaly detection methods.
+					</li>
+				</ul>
+
+
+
+			</section>
+
+			
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)</h2>
+				<div class="text-image">
+					<img src="resources/Group 6.png" alt="Classification dmkde"></img>
+				</div>
+			</section>
+
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
+
+				<div class="container">
+					<div class="left-col">
+						<ul>
+							<li>An efficient approximate version of KDE.</li>
+							<li>Non-memory based.</li>
+							<li>Differentiable.</li>
+							<li>Two ways of training: optimization free and sgd.</li>
+							<li>Based on two main ideas:
+								<ul>
+									<li>Random Fourier features to approximate the Gaussian kernel.</li>
+									<li>Density Matrices to represent the PDF.</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="right-col" style="margin-left:50px;">
+						<img src="resources/dmkde_model_shrink.svg"> </img>
+					</div>
+				</div>
+
+
+			</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11">Anomaly Detection</h2>
+					<h3 data-auto-animate-target="11">Sklearn Methods vs DMKDE in Gaussian distributions</h3>
+					<div class="text-image">
+						<img src="resources/anomaly_detection1.svg" alt="Classification dmkde"></img>
+					</div>
+				</section>
+
+			
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Anomaly Detection: Sklearn Methods vs DMKDE</h2>
+				<div class="text-image">
+					<img src="resources/anomaly_detection2.svg" alt="Classification dmkde"></img>
+				</div>
+			</section>
+
+
+
+
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Experimental Setup - Datasets</h2>
+				\[\tiny{
+					\begin{array}[c]{l|c|c|c}
+					\hline
+					Dataset & Instances & Dimensions & Outlier Rate \\ 
+					\hline
+					
+					Arrhythmia & 452 & 274 & 0,146 \\
+					Cardio & 2060 & 22 & 0,2 \\
+					SpamBase & 3485 & 58 & 0,2 \\
+					Thyroid & 3772 & 36 & 0,0247 \\
+					KDDCUP & 10000 & 118 & 0,1934 \\
+					Glass & 214 & 9 & 0,042 \\
+					Lympho & 148 & 18 & 0,04 \\
+					Ionosphere & 351 & 33 & 0,359 \\
+					Letter & 1600 & 32 & 0,0625 \\
+					MNIST & 7603 & 100 & 0,092 \\
+					Musk & 3062 & 166 & 0,0317 \\
+					OptDigits & 5216 & 64 & 0,0288 \\
+					PenDigits & 6870 & 16 & 0,0227 \\
+					Pima & 768 & 8 & 0,349 \\
+					Satellite & 6435 & 36 & 0,3164 \\
+					SatImage & 5803 & 36 & 0,0122 \\
+					Shuttle & 10000 & 9 & 0,0715 \\
+					Vertebral & 240 & 6 & 0,125 \\
+					Vowels & 1456 & 12 & 0,03434 \\
+					WBC & 378 & 30 & 0,0556 \\  
+					\hline
+					\end{array}
+				}
+\]
+			</section>
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Results</h2>
+				\[\tiny{
+			\begin{array}[c]{l||c|c|c|c|c|c|c|c|c|c|c||c}
+\hline
+Data Set    & OCSVM & iForest & Cov. & LOF & KNN & SOS & COPOD & LODA   & VAE-B & DSVDD & LAKE   & AD-DMKDE \\
+\hline
+
+Arrhythmia & 0.813 & 0.821 & 0.818 & 0.804 & 0.861 & 0.773 & 0.844 & 0.798 & 0.856 & 0.864 & \underline{0.909} & \bf{0.911} \\
+Cardio     & \underline{0.804} & 0.752 & 0.756 & 0.702 & 0.753 & 0.739 & 0.750 & 0.717 & 0.783 & 0.735 & 0.672 & \bf{0.831} \\
+Glass      & 0.916 & 0.931 & 0.931 & 0.925 & 0.900 & 0.907 & 0.916 & 0.848 & 0.900 & 0.907 & \bf{1.000} & \underline{0.974} \\
+Ionosphere & 0.765 & 0.710 & 0.876 & 0.830 & 0.817 & 0.784 & 0.736 & 0.510 & 0.714 & 0.674 & \bf{0.993} & \underline{0.959} \\
+Letter     & 0.893 & 0.897 & 0.909 & \bf{0.930} & 0.910 & 0.911 & 0.895 & 0.899 & 0.897 & 0.897 & 0.838 & \underline{0.927} \\
+Lympho     & 0.934 & \bf{1.000} & 0.934 & \bf{1.000} & \bf{1.000}  & 0.934 & 0.962 & 0.923 & \bf{1.000} & \bf{1.000}  & \bf{1.000} & \bf{1.000} \\
+MNIST      & 0.881 & 0.881 & 0.841 & 0.886 & 0.909 & 0.864 & 0.868 & 0.866 & 0.895 & 0.880 & \bf{0.959} & \underline{0.911} \\
+Musk       & 0.958 & 0.931 & \underline{0.997} & 0.958 & 0.991 & 0.951 & 0.964 & 0.954 & 0.984 & 0.992 & 0.639 & \bf{1.000} \\
+OptDigits  & 0.952 & 0.952 & 0.952 & 0.949 & 0.952 & 0.953 & 0.949 & \underline{0.955} & 0.951 & 0.952 & 0.819 & \bf{0.981} \\
+PenDigits  & 0.963 & \underline{0.967} & 0.966 & 0.961 & 0.965 & 0.963 & 0.966 & 0.966 & 0.966 & 0.963 & \bf{0.994} & \bf{0.994} \\
+Pima       & 0.592 & 0.624 & 0.559 & 0.615 & 0.644 & 0.636 & 0.615 & 0.597 & 0.632 & 0.679 & \underline{0.740} & \bf{0.758} \\
+Satellite  & 0.681 & 0.757 & 0.813 & 0.634 & 0.716 & 0.597 & 0.732 & 0.709 & 0.761 & 0.761 & \underline{0.841} & \bf{0.845} \\
+SatImage   & 0.984 & \underline{0.998} & 0.991 & 0.979 & 0.998 & 0.980 & 0.994 & 0.997 & 0.996 & 0.996 & 0.946 & \bf{1.000} \\
+SpamBase   & 0.702 & 0.794 & 0.714 & 0.702 & 0.719 & 0.719 & 0.799 & 0.699 & 0.741 & 0.738 & \bf{0.885} & \underline{0.816} \\
+Thyroid    & 0.953 & 0.958 & \bf{0.986} & 0.949 & 0.953 & 0.949  & 0.953 & 0.958 & 0.958 & 0.961 & 0.803 & \underline{0.967} \\
+Vertebral  & 0.750 & 0.778 & 0.817 & 0.796 & 0.810 & 0.817 & 0.817 & 0.817 & 0.817 & \underline{0.819} & 0.807 & \bf{0.904} \\
+Vowels     & 0.950 & 0.942 & 0.941 & 0.951 & 0.969 & 0.954 & 0.943 & 0.929 & 0.952 & 0.943 & \bf{1.000} & \underline{0.979} \\
+WBC        & 0.942 & 0.941 & 0.949 & 0.957 & 0.942 & 0.913 & \bf{0.970} & 0.947 & 0.957 & 0.956 & 0.897 & \underline{0.961} \\
+\hline
+\end{array}} 
+\]
+			</section>
+
+
+			<section data-visibility="uncounted">
+				<section class="title-slide has-dark-background present" style="top: 312px; display: block;">
+					<h1>Density Matrices</h1>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Quantum Mechanics</h1>
+					<h2 data-auto-animate-target="">Brief introduction</h2>
+
+					<div class="container">
+						<div class="left-col">
+							<ul>
+								<li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+								<li><b>Quantum uncertainty</b>: a QS may be in any superposition of basis states.</li>
+								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
+								</li>
+							</ul>
+						</div>
+						<div class="left-col">
+							<img src="resources/quantum_mechanics_brief_introduction.svg"> </img>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Quantum Mechanics</h1>
+					<h2 data-auto-animate-target="">Example</h2>
+
+					<div class="container">
+						<img src="resources/quantum_mechanics_example.svg"> </img>
+					</div>
+				</section>
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Are they useful for statistics and ML?</h2>
+					<img src="resources/density_matrix.svg" alt="Websocket" width="45%" style="float: right">
+					<div style="width: 55%;">
+						<div>
+							<ul>
+								<li>A more general model of probability.</li>
+								<li>It combines linear algebra and probability</li>
+								<li>Probability calculations with linear algebra</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
+									very useful.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
+									very useful.</li>
+								<li>Arbitrary distributions on \(\mathbb{R}^n\): <br><br><b style="color:red">Not
+										obvious</b>, mixtures of non-parametric probability distributions.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+
+
+			<section style="top: 0px; display: block;" class="stack present" data-previous-indexv="0"
+				data-visibility="uncounted">
+
+				<section class="title-slide has-dark-background present" style="top: 312px; display: block;">
+					<h1>Random Fourier Features</h1>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<div class="text-image">
+						<img src="resources/feature_space.png" alt="Websocket" width="30%" style="float: right">
+						<div style="width: 70%;">
+							<ul>
+								<li>Feature space induced by a kernel function.</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<div class="text-image">
+						<img src="resources/gaussian_kernel.png" alt="Websocket" width="40%" style="float: right">
+						<div style="width: 60%;">
+							<ul>
+								<li>Feature space induced by a kernel function.</li>
+								<li>High or infinite dimensional embedded feature space.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<div class="text-image">
+						<div class="container">
+							<div class="left-col">
+								<ul>
+									<li>Feature space induced by a kernel function.</li>
+									<li>High or infinite dimensional embedded feature space.</li>
+									<li>Problem: efficiency \(O(N^2)\)</li>
+								</ul>
+							</div>
+							<div class="right-col">
+								\[\textbf{K}= \begin{bmatrix}k(\textbf{x}_1, \textbf{x}_1) & \cdots & k(\textbf{x}_1,
+								\textbf{x}_N)
+								\\ & \vdots
+								\\ \cdots& k(\textbf{x}_i, \textbf{x}_j) & \cdots
+								\\ & \vdots &
+								\\ k(\textbf{x}_N, \textbf{x}_1) & \cdots & k(\textbf{x}_N, \textbf{x}_N)
+
+								\end{bmatrix}\]
+
+							</div>
+
+
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<h2>Several Methods</h2>
+					<div class="text-image">
+						<img src="resources/gaussian_processes.png" alt="Websocket" width="45%" style="float: right">
+						<div style="width: 55%;">
+
+							<ul>
+								<li>Support Vector Machines</li>
+								<li>Kernel ridge regression</li>
+								<li>Gaussian processes</li>
+								<li>And many more</li>
+							</ul>
+							<br>
+							(nowadays called shallow methods)
+
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+								<li>Given \( k:\mathbb{R}^d \times \mathbb R^d \rightarrow \mathbb R\)
+									<br> builds an embedding \( \phi_{\text{rff}}: \mathbb R^d \rightarrow
+									\mathbb{R}^D\)
+									<br> such that \[ k(x,y) \approx \langle \phi_{\text{rff}}(x), \phi_{\text{rff}}(y)
+									\rangle \]
+
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+								<li>Given \( k:\mathbb{R}^d \times \mathbb R^d \rightarrow \mathbb R\)
+									<br> builds an embedding \( \phi_{\text{rff}}: \mathbb R^d \rightarrow
+									\mathbb{R}^D\)
+									<br> such that \[ k(x,y) \approx \langle \phi_{\text{rff}}(x), \phi_{\text{rff}}(y)
+									\rangle \]
+
+								</li>
+								<li><b>Result:</b> learn models involving non-linear kernels using linear
+									methods</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+								<li>Given \( k:\mathbb{R}^d \times \mathbb R^d \rightarrow \mathbb R\)
+									<br> builds an embedding \( \phi_{\text{rff}}: \mathbb R^d \rightarrow
+									\mathbb{R}^D\)
+									<br> such that \[ k(x,y) \approx \langle \phi_{\text{rff}}(x), \phi_{\text{rff}}(y)
+									\rangle \]
+
+								</li>
+								<li><b>Result:</b> learn models involving non-linear kernels using linear
+									methods</li>
+								<li>Test of the time award NeurIPS 2017</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<h2 data-auto-animate-target="">Method</h2>
+					<div class="text-image">
+						<ul>
+							<li>Sample \(\{w_1,\cdots,w_D\} \sim p\text{, }p(w)\) is the Fourier transform of \(k\)</li>
+							<li>Sample \(\{b_1,\cdots,b_D\} \sim Unif[0, 2\pi]\)
+								<br>
+								\[\phi_{\text{rff}}: \mathbb{R}^d \rightarrow \mathbb{R}^D\]
+								\[x \rightarrow \sqrt{\frac{2}{D}}(cos(w_1^Tx + b_1), \cdots, cos(w_D^Tx + b_D)))\]
+
+							</li>
+							<li>Based on the Bochner's theorem:<br>
+								<b>THeorem 1 (Bochner [])</b>. A continous kernel \(k(x,y)=k(x-y)\) on \(\mathbb{R}^d\)
+								is
+								positive definite if and only if \(k(\delta)\) is the Fourier transform of a
+								non-negative
+								measure.
+
+								\[k(x-y)=\int_{\mathbb{R}^d} p(w)e^{jw'(x-y)}dw=\mathbb{E}[\zeta_w(x)\zeta(y)^*]\]
+							</li>
+						</ul>
+					</div>
+				</section>
+
+			</section>
+			
+		</div>
+
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script>
+
+		// Also available as an ES module, see:
+		// https://revealjs.com/initialization/
+		Reveal.initialize({
+			width: 1200,
+			heigth: 800,
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			margin: 0.04,
+			// minScale: 2.0,
+			// maxScale: 2.0,
+			autoAnimate: false,
+			transition: 'none',
+			slideNumber: 'c/t',
+			fragments: true,
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+				// pass other options into `MathJax.Hub.Config()`
+				TeX: { Macros: { RR: "{\\bf R}" } }
+			},
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+			dependencies: [
+				{ src: 'inline_svg.js', async: true }
+			]
+		});
+	</script>
+	
+	</body>
+</html>

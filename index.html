@@ -24,7 +24,7 @@
 				<h2>Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)</h2>
 				<h4 style="font-weight: 100;">Joseph A. Gallego-Mejia / Oscar Bustos / Fabio González</h4>
 				<h5>jagallegom@unal.edu.co / oabustosb@unal.edu.co / fagonzalezo@unal.edu.co</h5>
-				<h6 style="font-weight: 100; font-size: 16px;">Engineering – Systems and Industrial
+				<h6 style="font-weight: 100; font-size: 16px;">Computing Systems and Industrial Engineering
 					Department – Bogota - Colombia</h6>
 			</section>
 
@@ -172,9 +172,11 @@
 					<h1 data-auto-animate-target="">Anomaly Detection</h1>
 					<h2>Tools</h2>
 					<div class="text-image">
-						<img src="resources/classification.svg" alt="Websocket" width="35%" style="float: right">
-						<div width="50%">
-							<div>
+						<img src="resources/classification.svg" alt="Websocket" width="50%" style="float: right">
+						<div width="35%">
+              <div>
+                <br><br>
+                <br><br>
 								<ul>
 									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
 									<li>When \(\alpha\) is high \(\rightarrow\) supervised learning approach.</li>
@@ -193,6 +195,8 @@
 						<img src="resources/novelty_detection_2d.png" alt="Websocket" width="35%" style="float: right">
 						<div width="50%">
 							<div>
+                <br><br>
+                <br><br>
 								<ul>
 									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
 									<li>When \(\alpha\) is high \(\rightarrow\) supervised learning approach.</li>
@@ -216,6 +220,8 @@
 							<li>Also known as outlier or novelty detection (other terms: unusual, irregular,
 								atypical,).</li>
 							<li>It can be solved using supervised, unsupervised or semi-supervised approaches</li>
+							<li>Some Applications: Medical Anomaly Detection, Fraud Detection, Video Surveillance, 
+              Time Series, Industrial Damage Detection</li>
 						</ul>
 					</div>
 				</div>
@@ -233,14 +239,6 @@
 					representation of the data is crucial [80].
 				</aside>
 			</section>
-
-			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-				aria-hidden="true">
-				<h1 data-auto-animate-target="">Anomaly Detection Applications</h1>
-				<img src="resources/background_anomaly_detection_applications.svg"> </img>
-			</section>
-
-
 
 			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
 				aria-hidden="true">
@@ -272,68 +270,6 @@
 				</ul>
 			</section>
 
-			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
-				aria-hidden="true">
-				<h1 data-auto-animate-target="11">Problem Statement</h1>
-				<table>
-					<thead>
-						<tr>
-							<th>Aspects</th>
-							<th>Kernel Density Estimation</th>
-							<th>Neural Density Estimation</th>
-							<th>Generative Adversarial Networks</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Non Memory Based</td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td></td>
-
-						</tr>
-						<tr>
-							<td>Simple Model</td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>Training Difficulty</td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>Density Estimation</td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>Differentiable</td>
-							<td><span style="color:red">&#10006;</span></td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td><span style="color:green">&#10003;</span></td>
-							<td></td>
-						</tr>
-
-						<tr>
-							<td>Good for anomaly detection</td>
-							<td><span style="color:green">&#10003;?</span></td>
-							<td><span style="color:green">&#10003;?</span></td>
-							<td><span style="color:green">&#10003;?</span></td>
-							<td></td>
-						</tr>
-
-					</tbody>
-				</table>
-			</section>
 
 			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
 				aria-hidden="true">
@@ -396,23 +332,6 @@
 				</table>
 			</section>
 
-
-			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
-				aria-hidden="true">
-				<h1 data-auto-animate-target="11">Hypotheses</h1>
-				<ul>
-					
-					<li style="font-size: 32px;">
-						Using this model for anomaly detection can obtain results that are competitive with
-						state-of-the-art
-						anomaly detection methods.
-					</li>
-				</ul>
-
-
-
-			</section>
-
 			
 			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
 				aria-hidden="true">
@@ -428,43 +347,31 @@
 				aria-hidden="true">
 				<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
 
-				<div class="container">
-					<div class="left-col">
-						<ul>
-							<li>An efficient approximate version of KDE.</li>
-							<li>Non-memory based.</li>
-							<li>Differentiable.</li>
-							<li>Two ways of training: optimization free and sgd.</li>
-							<li>Based on two main ideas:
-								<ul>
-									<li>Random Fourier features to approximate the Gaussian kernel.</li>
-									<li>Density Matrices to represent the PDF.</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="right-col" style="margin-left:50px;">
-						<img src="resources/dmkde_model_shrink.svg"> </img>
-					</div>
-				</div>
-
-
+          <div class="text-image">
+						<img src="resources/dmkde_model_shrink.svg" alt="Websocket" width="20%" style="float: right">
+						<div width="50%">
+							<div>
+                  <ul>
+                    <li>An efficient approximate version of KDE.</li>
+                    <li>Non-memory based.</li>
+                    <li>Differentiable.</li>
+                    <li>Two ways of training: optimization free and sgd.</li>
+                    <li>Based on two main ideas:
+                      <ul>
+                        <li>Random Fourier features to approximate the Gaussian kernel.</li>
+                        <li>Density Matrices to represent the PDF.</li>
+                      </ul>
+                    </li>
+                  </ul>
+							</div>
+						</div>
+        </div>
 			</section>
-
-
-				<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
-					aria-hidden="true">
-					<h2 data-auto-animate-target="11">Anomaly Detection</h2>
-					<h3 data-auto-animate-target="11">Sklearn Methods vs DMKDE in Gaussian distributions</h3>
-					<div class="text-image">
-						<img src="resources/anomaly_detection1.svg" alt="Classification dmkde"></img>
-					</div>
-				</section>
 
 			
 			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
 				aria-hidden="true">
-				<h2 data-auto-animate-target="11">Anomaly Detection: Sklearn Methods vs DMKDE</h2>
+				<h2 data-auto-animate-target="11">Anomaly Detection: Classic Methods vs DMKDE</h2>
 				<div class="text-image">
 					<img src="resources/anomaly_detection2.svg" alt="Classification dmkde"></img>
 				</div>
@@ -509,6 +416,28 @@
 				}
 \]
 			</section>
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Results</h2>
+				<div class="text-image">
+					<img src="resources/f1scorebar.png" alt="Classification dmkde"></img>
+				</div>
+			</section>
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""
+				aria-hidden="true">
+				<h2 data-auto-animate-target="11">Results</h2>
+				<div class="text-image">
+					<img src="resources/f1scorebox.png" alt="Classification dmkde"></img>
+				</div>
+			</section>
+
+
+
+
+
+
 
 
 			<section data-auto-animate="running" class="future" style="top: 312px; display: block;" hidden=""

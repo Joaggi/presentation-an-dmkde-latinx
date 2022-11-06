@@ -12,7 +12,11 @@
  
 
 		<!-- Theme used for syntax highlighted code -->
+
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
 	</head>
 	<body>
 <div class="reveal">
@@ -20,7 +24,7 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 			<section>
-				<img src="resources/unal.svg" style="width: 220px; margin-right: 20%;" />
+				<img src="resources/unal.png" style="width: 220px; margin-right: 20%;" />
 				<img src="resources/LXAI-logo-black.png" style="width: 120px; margin-right: 30px;" />
 				<img src="resources/Logo_for_Conference_on_Neural_Information_Processing_Systems.svg.png" style="width: 200px;" />
 				<h2 style="margin-top: 30px;">Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)</h2>
@@ -31,97 +35,107 @@
 				</h6>
 			</section>
 
-			<section> <!-- BACKGROUND: VENN DIAGRAM -->
+		
 
-				<h1 style="top: 99.5px; margin-top: 35px;">Background</h1>
-			
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_1.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_2.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_3.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_4.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_5.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
-					aria-hidden="true">
-					<div class="text-image">
-						<img src="resources/motivation_anomaly_3_6.svg"> </img>
-					</div>
-				</section>
-
+			<section class="title-slide has-dark-background present" style="top: 312px; display: block;">
+				<h1>Background</h1>
+			</section>
+			<section data-auto-animate="pending" class="future" style="top: 99.5px; display: block;" hidden=""
+				aria-hidden="true">
+				<div class="text-image">
+					<img src="resources/motivation_anomaly_3.svg"> </img>
+				</div>
 			</section>
 
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+						<div>
+							<ul>
+								<li >Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
+							</ul>
+						</div>
+				</section>
+ 
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
 
-			<section> <!-- ANOMALY DETECTION DEFINITION -->
+						<div>
+							<ul>
+								<li >Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
+								<li >Also known as outlier or novelty detection (other terms: unusual, irregular, atypical).</li>
+							</ul>
+						</div>
+				</section>
+  
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+						<div>
+							<ul>
+								<li >Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
+								<li >Also known as outlier or novelty detection (other terms: unusual, irregular, atypical).</li>
+								<li >It can be solved using supervised, unsupervised or semi-supervised approaches</li>
+							</ul>
+						</div>
+				</section>
+        <section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+						<div>
+							<ul>
+								<li >Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
+								<li >Also known as outlier or novelty detection (other terms: unusual, irregular, atypical).</li>
+								<li >It can be solved using supervised, unsupervised or semi-supervised approaches</li>
+								<li >Some Applications: Medical Anomaly Detection, Fraud Detection, Video Surveillance, 
+									Time Series, Industrial Damage Detection</li>
+							</ul>
+						</div>
+				</section>
+	
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Anomaly Detection</h1>
 					<img src="resources/anomaly_detection_types.png" alt="Websocket" width="45%" style="float: right">
 					<div style="width: 55%;">
 						<div>
 							<ul>
-								<li>Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
-								<li>Also known as outlier or novelty detection (other terms: unusual, irregular,
-									atypical).</li>
-								<li>It can be solved using supervised, unsupervised or semi-supervised approaches</li>
-								<li>Some Applications: Medical Anomaly Detection, Fraud Detection, Video Surveillance, 
+								<li >Anomaly is an observation that deviates considerably from some concept of normality.</li>							</li>
+								<li >Also known as outlier or novelty detection (other terms: unusual, irregular, atypical).</li>
+								<li >It can be solved using supervised, unsupervised or semi-supervised approaches</li>
+								<li >Some Applications: Medical Anomaly Detection, Fraud Detection, Video Surveillance, 
 									Time Series, Industrial Damage Detection</li>
 							</ul>
 						</div>
 					</div>
-					<aside class="notes">
-						F. Y. Edgeworth, “On discordant observations,” The London, Edinburgh, and Dublin Philosophical
-						Magazine and Journal of Science, vol. 23, no. 5, pp. 364–375, 1887.
-
-						Kuhn [14] claims that persistent anomalies drive scientific
-						revolutions (see section VI ‘Anomaly and the Emergence of
-						Scientific Discoveries’ in [14]).
-
-						T. S. Kuhn, The Structure of Scientific Revolutions. Chicago: University of Chicago Press, 1970.
-
-						For applications to be successful on such complex and high-dimensional data, a meaningful
-						representation of the data is crucial [80].
-					</aside>
+					
 				</section>
 				
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Anomaly Detection</h1>
 					<h2>Tools</h2>
 					<div class="text-image">
-						<img src="resources/classification.svg" alt="Websocket" width="50%" style="float: right">
+							<div>
+								<br>
+								<ul>
+									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
+								</ul>
+							</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Anomaly Detection</h1>
+					<h2>Tools</h2>
+					<div class="text-image">
+						<img src="resources/classification.png" alt="Websocket" width="50%" style="float: right">
 						<div width="35%">
 							<div>
-								<br><br>
 								<br><br>
 								<ul>
 									<li>Let \(\alpha\) be the ratio of the anomaly points</li>
@@ -132,7 +146,7 @@
 					</div>
 				</section>
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Anomaly Detection</h1>
 					<h2>Tools</h2>
@@ -153,7 +167,7 @@
 					</div>
 				</section>				
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Anomaly Detection Methods</h1>
 					<img src="resources/anomaly_detection_background.png" width="80%"> </img><br>
@@ -169,10 +183,32 @@
 
 				</section>
 
-			</section>
 
+				<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
+				aria-hidden="true">
+					<h1>Density Estimation</h1>
+					<div class="text-image">
+							<ul>
+								<li><b>Probability density function (pdf):</b> defines the likelihood of failing within
+									particular ranges of values from a random variable.</li>
+							</ul>
+					</div>
+				</section>
 
-			<section> <!-- DENSITY ESTIMATION AND KDE -->
+					<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
+				aria-hidden="true">
+					<h1>Density Estimation</h1>
+					<div class="text-image">
+							<ul>
+								<li><b>Probability density function (pdf):</b> defines the likelihood of failing within
+									particular ranges of values from a random variable.</li>
+								<li>Given a data set, if we suppose that these data are samples of an unknown stochastic
+									process, we try to reconstruct the pdf that best approximates its distribution.</li>
+							</ul>
+					</div>
+				</section>
+			
+
 
 				<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
 				aria-hidden="true">
@@ -196,6 +232,32 @@
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Density Estimation</h1>
 					<div class="text-image">
+							<ul>
+								<li>Non-parametric density estimation method.</li>
+							</ul>
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Density Estimation</h1>
+					<div class="text-image">
+							<ul>
+								<li>Non-parametric density estimation method.</li>
+								<li>Does not make any particular assumption about the underlying probability density
+									function.</li>
+							</ul>
+					</div>
+
+				</section>
+
+
+				<section data-auto-animate="" class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Density Estimation</h1>
+					<div class="text-image">
 						<img src="resources/kde_kernel.svg" alt="Websocket" width="40%" style="float: right">
 						<div style="width: 60%;">
 							<ul>
@@ -211,7 +273,41 @@
 				</section>
 
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Density Estimation Problems</h1>
+
+							<ul>
+								<li style="font-size:30px">Inneficient. Memory based algorithm.</li>
+							</ul>
+				</section>
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Density Estimation Problems</h1>
+
+							<ul>
+								<li style="font-size:30px">Inneficient. Memory based algorithm.</li>
+								<li style="font-size:30px">High dimensional data.</li>
+							</ul>
+				</section>
+
+	
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Density Estimation Problems</h1>
+
+							<ul>
+								<li style="font-size:30px">Inneficient. Memory based algorithm.</li>
+								<li style="font-size:30px">High dimensional data.</li>
+								<li style="font-size:30px">It is not differentiable.</li>
+							</ul>
+				</section>
+
+			
+
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Density Estimation Problems</h1>
 
@@ -251,12 +347,10 @@
 					</div>
 				</section>
 
-			</section>
 			
 
-			<section>  <!-- RESEARCH PROBLEM -->
 
-				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				<section data-visibility="hidden" data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="11">Problem Statement</h1>
 					<h4>Challenges of density estimation methods</h4>
@@ -331,11 +425,10 @@
 					</table>
 				</section>
 
-			</section>
 
 			
 			<!-- PROPOSAL INTRO -->
-			<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+			<section data-visibility="hidden" data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
 				<h2 data-auto-animate-target="11" style="margin-top: 20px; margin-bottom: -15px;">
 					Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)
@@ -346,7 +439,67 @@
 			</section>
 
 
-			<section> <!-- DMKDE: RFF, DENSITY MATRICES -->
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
+
+					<div class="text-image">
+							<div>
+								<ul>
+									<li>An efficient approximate version of KDE.</li>
+								</ul>
+							</div>
+					</div>
+				</section>
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
+
+					<div class="text-image">
+							<div>
+								<ul>
+									<li>An efficient approximate version of KDE.</li>
+									<li>Non-memory based.</li>
+								</ul>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
+
+					<div class="text-image">
+							<div>
+								<ul>
+									<li>An efficient approximate version of KDE.</li>
+									<li>Non-memory based.</li>
+									<li>Differentiable.</li>
+								</ul>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11">Density Matrix Kernel Density Estimation</h2>
+
+					<div class="text-image">
+							<div>
+								<ul>
+									<li>An efficient approximate version of KDE.</li>
+									<li>Non-memory based.</li>
+									<li>Differentiable.</li>
+									<li>Two ways of training: optimization free and sgd.</li>
+								</ul>
+						</div>
+					</div>
+				</section>
+
 
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
@@ -373,11 +526,35 @@
 					</div>
 				</section>
 
+
 				<section class="title-slide has-dark-background present" style="top: 312px; display: none;">
-					<h1>Random Fourier Features</h1>
+					<h1>Random Fourier Features and Kernel Methods</h1>
 				</section>
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<div class="text-image">
+								<ul>
+									<li>Feature space induced by a kernel function.</li>
+								</ul>
+					</div>
+				</section>
+
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Kernel Methods</h1>
+					<div class="text-image">
+								<ul>
+									<li>Feature space induced by a kernel function.</li>
+									<li>High or infinite dimensional embedded feature space.</li>
+								</ul>
+					</div>
+				</section>
+
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Methods</h1>
 					<div class="text-image">
@@ -404,7 +581,22 @@
 					</div>
 				</section>
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="">Random Fourier Features</h1>
+					<div class="text-image">
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Random Fourier Features</h1>
 					<div class="text-image">
@@ -423,7 +615,7 @@
 					</div>
 				</section>
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+			<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Random Fourier Features</h1>
 					<div class="text-image">
@@ -444,75 +636,117 @@
 						</div>
 					</div>
 				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+        <section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Random Fourier Features</h1>
-					<h2 data-auto-animate-target="">Method</h2>
 					<div class="text-image">
-						<ul>
-							<li>Sample \(\{w_1,\cdots,w_D\} \sim p\text{, }p(w)\) is the Fourier transform of \(k\)</li>
-							<li>Sample \(\{b_1,\cdots,b_D\} \sim Unif[0, 2\pi]\)
-								<br>
-								\[\phi_{\text{rff}}: \mathbb{R}^d \rightarrow \mathbb{R}^D\]
-								\[x \rightarrow \sqrt{\frac{2}{D}}(cos(w_1^Tx + b_1), \cdots, cos(w_D^Tx + b_D)))\]
+						<div>
+							<ul>
+								<li><b>Idea</b>: feature space approximation. </li>
+								<li>Given \( k:\mathbb{R}^d \times \mathbb R^d \rightarrow \mathbb R\)
+									<br> builds an embedding \( \phi_{\text{rff}}: \mathbb R^d \rightarrow
+									\mathbb{R}^D\)
+									<br> such that \[ k(x,y) \approx \langle \phi_{\text{rff}}(x), \phi_{\text{rff}}(y)
+									\rangle \]
 
-							</li>
-							<li>Based on the Bochner's theorem:<br>
-								<b>Theorem 1 (Bochner).</b>
-								A continuous kernel \(k(x,y)=k(x-y)\) on \(\mathbb{R}^d\) is positive definite 
-								if and only if \(k(\delta)\) is the Fourier transform of a non-negative measure.
+								</li>
+								<li><b>Result:</b> learn models involving non-linear kernels using linear
+									methods</li>
 
-								\[k(x-y)=\int_{\mathbb{R}^d} p(w)e^{jw'(x-y)}dw=\mathbb{E}[\zeta_w(x)\zeta(y)^*]\]
-							</li>
-						</ul>
+								<li><b>AFF</b>: further optimization using neural networks. </li>
+							</ul>
+						</div>
 					</div>
 				</section>
+
 
 				<section class="title-slide has-dark-background present" style="top: 312px; display: none;">
 					<h1>Density Matrices</h1>
 				</section>
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
-					aria-hidden="true">
-					<h1 data-auto-animate-target="">Quantum Mechanics</h1>
-					<h2 data-auto-animate-target="">Brief introduction</h2>
-
-					<div class="container">
-						<div class="left-col">
-							<ul>
-								<li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
-								</li>
-								<li><b>Quantum uncertainty</b>: a QS may be in any superposition of basis states.</li>
-								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
-								</li>
-							</ul>
-						</div>
-						<div class="left-col">
-							<img src="resources/quantum_mechanics_brief_introduction.svg"> </img>
-						</div>
-					</div>
-				</section>
-
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
-					aria-hidden="true">
-					<h1 data-auto-animate-target="">Quantum Mechanics</h1>
-					<h2 data-auto-animate-target="">Example</h2>
-
-					<div class="container">
-						<img src="resources/quantum_mechanics_example.svg"> </img>
-					</div>
-				</section>
-
-				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="11">Density Matrices</h1>
-					<h2 data-auto-animate-target="11">Are they useful for statistics and ML?</h2>
-					<img src="resources/density_matrix.svg" alt="Websocket" width="45%" style="float: right">
-					<div style="width: 55%;">
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
 						<div>
 							<ul>
-								<li>A more general model of probability.</li>
+                <li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+                <li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
+								
+						</div>
+					</div>
+				</section>
+
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+                <li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
+								
+                <li>A more general model of probability.</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+                <li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
+								
+                <li>A more general model of probability.</li>
+								<li>It combines linear algebra and probability</li>
+
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h1 data-auto-animate-target="11">Density Matrices</h1>
+					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
+					<div class="text-image">
+						<div>
+							<ul>
+                <li>State of a quantum system (QS) \(\psi \in \mathcal{H}\) (vector in a Hilbert space).
+								</li>
+								<li><b>Born rule</b>: probability that a measurement will produce a particular result.
+								
+                <li>A more general model of probability.</li>
 								<li>It combines linear algebra and probability</li>
 								<li>Probability calculations with linear algebra</li>
 
@@ -521,40 +755,39 @@
 					</div>
 				</section>
 
-				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="11">Density Matrices</h1>
 					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
 					<div class="text-image">
 						<div>
 							<ul>
-								<li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
+                <li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
 									very useful.</li>
 							</ul>
 						</div>
 					</div>
 				</section>
 
-				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+
+
+        <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="11">Density Matrices</h1>
 					<h2 data-auto-animate-target="11">Represent a probability function efficiently</h2>
 					<div class="text-image">
 						<div>
 							<ul>
-								<li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
+                <li>Categorical distributions: <b style="color:red">Obvious</b>, but innefficient, not
 									very useful.</li>
+
 								<li>Arbitrary distributions on \(\mathbb{R}^n\): <br><br><b style="color:red">Not
 										obvious</b>, mixtures of non-parametric probability distributions.</li>
 							</ul>
 						</div>
 					</div>
 				</section>
-
-			</section>			
-			
-
-			<section> <!-- ADDMKDE AND ITS STAGES -->
 
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
@@ -566,30 +799,60 @@
 					</div>
 				</section>
 
-			    <section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
-					<h2 data-auto-animate-target="11">Adaptive Fourier Features (AFF)</h2>
-					The Random Fourier Feature embedding:
-						\[x \rightarrow \sqrt{\frac{2}{D}} (cos(w_1^Tx + b_1), \cdots, cos(w_D^Tx + b_D))\]
-					Since the \(w\) and \(b\) coefficients are random, they are heavily influenced by random seeds.
-					<br><br>
-					We use a neural network to optimize these coefficients in order to build an embedding that better 
-					approximates the kernel function. We called this optimization process "Adaptive Fourier Features"
-					or AFF.
+					<h2 data-auto-animate-target="11">Training Stage</h2>
+						<ol>
+							<li>Generate \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
+						</ol>
 				</section>
-			
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Training Stage</h2>
+						<ol>
+							<li>Generate \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
+							<li>Optimization of \(\mathbb{w} \) and \(\mathbb{b} \) (AFF)</li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Training Stage</h2>
+						<ol>
+							<li>Generate \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
+							<li>Optimization of \(\mathbb{w} \) and \(\mathbb{b} \) (AFF)</li>
+							<li>Embed each training data point step</li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Training Stage</h2>
+						<ol>
+							<li>Generate \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
+							<li>Optimization of \(\mathbb{w} \) and \(\mathbb{b} \) (AFF)</li>
+							<li>Embed each training data point step</li>
+							<li>Normalization of the embeddings</li>
+						</ol>
+				</section>
+
+
+
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
 					<h2 data-auto-animate-target="11">Training Stage</h2>
 					<img src="resources/trainingstage.jpg" alt="Websocket" width="30%" style="float: right">
 					<div style="width: 60%; margin-top: 10%;">
 						<ol>
-							<li>Selecting random coefficients \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
+							<li>Generate \(\mathbb{w} = (w_1, \cdots, w_D) \) and \(\mathbb{b} = (b_1, \cdots, b_D) \)</li>
 							<li>Optimization of \(\mathbb{w} \) and \(\mathbb{b} \) (AFF)</li>
-							<li>Embedding the training samples using \(\mathbb{w} \), \(\mathbb{b} \) and the RFF formula</li>
-							<li>Normalization of the embeddings to make them more similar to quantum states</li>
-							<br><br>
-							<li>Density Matrix building, by adding the outer products of all training embeddings</li>
+							<li>Embed each training data point step</li>
+							<li>Normalization of the embeddings</li>
+              <li><b>Density Matrix building</b>:  by adding the outer products of all training embeddings</li>
 						</ol>
 					</div>
 				</section>
@@ -597,19 +860,33 @@
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
 					<h2 data-auto-animate-target="11">Validation Stage</h2>
+						<ol>
+							<li>RFF embedding of the validation samples</li>
+							</li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Validation Stage</h2>
+						<ol>
+							<li>RFF embedding of the validation samples</li>
+							<li>Density using an the Born rule </li>
+							</li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Validation Stage</h2>
 					<img src="resources/validationstage.jpg" alt="Websocket" width="33%" style="float: right">
 					<div style="width: 60%; margin-top: 10%;">
 						<ol>
-							<li>Perform the RFF embedding of the validation samples using \(\mathbb{w}\) and \(\mathbb{b}\) 
-								from the previous stage, and normalizing them as before</li>
-							<br>
-							<li>For each sample, estimate its density using an adaptation of the Born rule,
-								operating the embedding of the sample with the density matrix \(R\)
-							</li>
-							<br>
-							<li>Given a real or expected outlier rate in the data set, sort the estimations for all samples
-								and choosing the lower \(\textrm{outlier rate}\) percentage of samples as outliers, with an 
-								appropriate threshold \(\theta\) as discriminator
+							<li>RFF embedding of the validation samples</li>
+							<li>Density using an the Born rule </li>
+							<li>Compute a threshold \(\theta\) as discriminator
 							</li>
 						</ol>
 					</div>
@@ -618,27 +895,49 @@
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
 					<h2 data-auto-animate-target="11">Prediction/Test Stage</h2>
+						<ol>
+							<li>RFF embedding of the test samples</li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Prediction/Test Stage</h2>
+						<ol>
+							<li>RFF embedding of the test samples</li>
+							<li>Density using an the Born rule </li>
+						</ol>
+				</section>
+
+
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				aria-hidden="true">
+					<h2 data-auto-animate-target="11">Prediction/Test Stage</h2>
 					<img src="resources/teststage.jpg" alt="Websocket" width="33%" style="float: right">
 					<div style="width: 60%; margin-top: 11%;">
 						<ol>
-							<li>Perform the RFF embedding of the test samples using \(\mathbb{w}\) and \(\mathbb{b}\) 
-								from the training stage, and normalizing them</li>
-							<br>
-							<li>For each sample, estimate its density using an adaptation of the Born rule as before,
-								operating the embedding of the sample with the density matrix \(R\)
-							</li>
-							<br>
-							<li>Using the threshold \(\theta\), classify each test sample as \(\textrm{normal}\) if its density
-								lies above the threshold, or as \(\textrm{anomaly}\) if its density lies below the threshold
+							<li>RFF embedding of the test samples</li>
+							<li>Density using an the Born rule </li>
+              <li>Using the threshold \(\theta\), classify each test sample as <b>normal</b> if its density
+                lies above the threshold, or as <b>anomaly</b> if its density lies below the threshold
 							</li>
 						</ol>
 					</div>
 				</section>
 
-			</section>
 
 
-			<section> <!-- EXPERIMENTAL SETUP AND RESULTS -->
+				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+					aria-hidden="true">
+					<h2 data-auto-animate-target="11" style="margin-top: 20px; margin-bottom: -15px;">
+						Anomaly detection using density matrices and kernel density estimation (AD-DMKDE)
+					</h2>
+					<div class="text-image">
+						<img src="resources/Group 6.png" alt="Classification dmkde"></img>
+					</div>
+				</section>
+
 
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
@@ -675,7 +974,7 @@
 					\]
 				</section>
 
-				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+				<section data-visibility="hidden" data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 				aria-hidden="true">
 					<h2 data-auto-animate-target="11">Results</h2>
 					\[\tiny{
@@ -709,24 +1008,77 @@
 
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
+              
 					<h2 data-auto-animate-target="11">Results</h2>
-					<div class="text-image">
-						<img src="resources/f1scorebar.png" alt="Classification dmkde"></img>
-					</div>
+            <style>
+              .p_iframe iframe {
+                width:90%;
+                height:1000px;
+            }
+            </style>
+
+            <div class="p_iframe">
+            <iframe frameborder="0" seamless='seamless' scrolling=no src="resources/graph.html"></iframe>
+            </div>
+
+
 				</section>
+
 
 				<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 					aria-hidden="true">
+              
 					<h2 data-auto-animate-target="11">Results</h2>
-					<div class="text-image">
-						<img src="resources/f1scorebox.png" alt="Classification dmkde"></img>
-					</div>
-				</section>
+            <style>
+              .p_iframe iframe {
+                width:90%;
+                height:1000px;
+            }
+            </style>
 
-			</section>
+            <div class="p_iframe">
+            <iframe frameborder="0" seamless='seamless' scrolling=no src="resources/box.html"></iframe>
+            </div>
+
+
+				</section>
 
 
 			<!-- CONCLUSIONS -->
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+			aria-hidden="true">
+				<h2 data-auto-animate-target="11">Conclusions</h2>
+				<ul>
+					<li>AD-DMKDE show better performance than state-of-the-art algorithms over twenty anomaly detection data sets. </li>
+        </ul>
+			</section>
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+			aria-hidden="true">
+				<h2 data-auto-animate-target="11">Conclusions</h2>
+				<ul>
+					<li>AD-DMKDE show better performance than state-of-the-art algorithms over twenty anomaly detection data sets. </li>
+					<li>The performance of AD-DMKDE does not seem to be affected by the anomaly rate of the data sets or the size
+						of the data sets, but it seems to perform better for low dimensionality data sets. 
+					</li>
+				</ul>
+			</section>
+
+
+			<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
+			aria-hidden="true">
+				<h2 data-auto-animate-target="11">Conclusions</h2>
+				<ul>
+					<li>AD-DMKDE show better performance than state-of-the-art algorithms over twenty anomaly detection data sets. </li>
+					<li>The performance of AD-DMKDE does not seem to be affected by the anomaly rate of the data sets or the size
+						of the data sets, but it seems to perform better for low dimensionality data sets. 
+					</li>
+					<li>In contrast with KDE, AD-DMKDE does not have huge memory requirements.</li>
+				</ul>
+			</section>
+
 
 			<section data-auto-animate="running" class="future" style="top: 312px; display: none;" hidden=""
 			aria-hidden="true">
@@ -753,7 +1105,7 @@
 
 				
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Methods</h1>
 					<div class="text-image">
@@ -766,7 +1118,8 @@
 						</div>
 					</div>
 				</section>
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Methods</h1>
 					<div class="text-image">
@@ -781,7 +1134,7 @@
 				</section>
 				
 
-				<section data-auto-animate="pending" class="future" style="top: 99.5px; display: none;" hidden=""
+				<section data-auto-animate class="future" style="top: 99.5px; display: none;" hidden=""
 					aria-hidden="true">
 					<h1 data-auto-animate-target="">Kernel Methods</h1>
 					<h2>Several Methods</h2>
@@ -826,16 +1179,16 @@
 		Reveal.initialize({
 			width: 1200,
 			heigth: 800,
-			controls: true,
+			controls: false,
 			progress: true,
 			center: true,
 			hash: true,
 			margin: 0.04,
 			// minScale: 2.0,
 			// maxScale: 2.0,
-			autoAnimate: false,
-			transition: 'none',
-			slideNumber: 'c/t',
+			//autoAnimate: false,
+			//transition: 'none',
+			//slideNumber: 'c/t',
 			fragments: true,
 			math: {
 				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
